@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <title>SAOSAO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img src="saosao.webp" alt="SAOSAO" class="main-image">
+    </div>
+
+    <h1 class="site-title">SAOSAO.NET</h1>
+
+    <p class="site-description">她是一抹暖阳，一想到她，心里就满是温暖和欢喜</p>
+
+    <div class="email-section">
+      <p class="email-display email-hidden" id="emailDisplay" onclick="revealEmail()">l♥ve@saosao.net</p>
+      <p class="reveal-hint" id="hint">域名待售，请点击获取完整邮箱</p>
+    </div>
+  </div>
+
+  <script>
+    function revealEmail() {
+      const emailDisplay = document.getElementById('emailDisplay');
+      const hint = document.getElementById('hint');
+
+      emailDisplay.textContent = 'love@saosao.net';
+      emailDisplay.classList.remove('email-hidden');
+      hint.textContent = '点击复制邮箱';
+
+      // 添加复制功能
+      emailDisplay.onclick = function () {
+        navigator.clipboard.writeText('love@saosao.net').then(function () {
+          const originalText = emailDisplay.textContent;
+          emailDisplay.textContent = '已复制！';
+          setTimeout(() => {
+            emailDisplay.textContent = originalText;
+          }, 1500);
+        });
+      };
+    }
+  </script>
+</body>
+
+</html>
